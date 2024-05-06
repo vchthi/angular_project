@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Clicker Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair Display">
+    <!-- <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script> -->
+
+    <link rel="stylesheet" href="./public/stylesheets/dangnhap.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+
+            <p class="logo">Book Store</p>
+            <ul>
+                <li><a href="/index.html">Trang Chủ</a></li>
+                <li><a href="#">Sản Phẩm</a></li>
+                <li><a href="#">Giỏ Hàng</a></li>
+                <!-- <li><a href="/admin.html">Admin</a></li> -->
+                <li><a href="#">Tài Khoản</a></li>
+            </ul>
+            <!-- <button class="btn">Sign Up</button> -->
+        </nav>
+    </header>
+    <div class="container">
+        <div class="content">
+            <div id="content-full"></div>
+            <div id="content-right">
+                <div class="content-right-contents">
+                    <h2>Đăng nhập</h2>
+                    <form id="loginForm" class="login-form">
+                        <input class="email-inp" name="email" id="email" type="text" placeholder="Email">
+
+                        <input class="pass-inp" name="password" id="pass" type="password" placeholder="Mật khẩu">
+                        <!-- <p>Bạn chưa có tài khoản? <br><a href="./register.html">Đăng kí ngay</a></p> -->
+                        <div id="errorMessages" class="error"></div>
+                        <!-- <button type="submit" class="btn" style="margin: 0 auto; margin-top: 20px;" onclick="login()">Đăng nhập</button> -->
+                        <input style="margin-left: 40px;" type="button" class="btn"  onclick="login()" value="Đăng nhập">
+                    </form>
+      
+
+                </div>
+            </div>
+            <div id="content-book"></div>
+        </div>
+    </div>
+
+
+    <footer style="margin-top: 500px;">
+        <div class="row">
+            <div class="col">
+                <h3>Book Store</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                </p>
+            </div>
+            <div class="col">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="">Menu</a></li>
+                    <li><a href="">Features</a></li>
+
+                    <li><a href="">News & Blogs</a></li>
+                    <li><a href="">Help & Supports</a></li>
+
+
+                </ul>
+            </div>
+            <!-- 
+            <div class="col"><h3>Company</h3>
+                <ul>
+                    <li><a href="">How we work</a></li>
+                    <li><a href="">Terms of service</a></li>
+
+                    <li><a href="">Pricing</a></li>
+                    <li><a href="">FAQ</a></li>
+
+
+                </ul></div>  -->
+            <div class="col">
+                <h3>Liên hệ</h3>
+                <ul>
+                    <li><a href="">QTSC, Tân Chánh Hiệp,<br> Quận 12, TPHCM</a></li>
+                    <li><a href="">+1 202-918-2132</a></li>
+
+                    <li><a href="">thivcps28621@mail.com</a></li>
+                    <li><a href="">www..com</a></li>
+
+
+                </ul>
+            </div>
+            <div class="col">
+                <h3>Nhận thông báo</h3>
+                <form id="thongbao">
+                    <box-icon name='envelope'></box-icon>
+                    <input type="email" placeholder="Enter email" required>
+
+                    <button type="submit"><box-icon name='right-arrow-alt'></box-icon></button>
+                </form>
+                <div class="social-icon">
+                    <box-icon class="fab" name='facebook' type='logo'></box-icon>
+                    <box-icon class="fab" name='twitter' type='logo'></box-icon>
+                    <box-icon class="fab" name='instagram' type='logo'></box-icon>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>
+<script src="./index.js"></script>
+
+<!-- 
+<script>
+    function validateForm() {
+        // giuthongbao
+        event.preventDefault();
+        document.getElementById("errorMessages").innerHTML = "";
+
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        if (email === "") {
+            document.getElementById("errorMessages").innerHTML += "Vui lòng nhập Email<br>";
+        }
+        if (password === "") {
+            document.getElementById("errorMessages").innerHTML += "Vui lòng nhập mật khẩu<br>";
+        } else if (password.length < 6) {
+            document.getElementById("errorMessages").innerHTML += "Mật khẩu phải có ít nhất 6 kí tự<br>";
+        } else {
+            alert("Đăng nhập thành công!");
+            document.getElementById("loginForm").reset();
+        }
+    }
+</script> -->

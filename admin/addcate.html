@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/stylesheets/admin_pro.css">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="addProductModal">
+  <h2>Thêm danh mục</h2><br>
+  <form id="formThemSanPham">
+      <label for="name">Tên danh mục</label><br>
+      <input type="text" id="name" name="name" placeholder="Nhập tên danh mục" required><br>
+      <label for="">Mô tả</label><br>
+      <input type="text" id="description" name="description" placeholder="Nhập mô tả danh mục" required><br>
+      <button style="float: left;" class="add-button" type="button" onclick="insertCategory()">Thêm</button>
+      <button style="float: right;" class="close-button" type="button">Đóng</button>
+  </form>
+</div>
+
+</body>
+</html>
+<script src="./admin_cate.js"></script>

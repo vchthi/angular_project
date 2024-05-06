@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Clicker Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair Display">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel='stylesheet' href='./public/stylesheets/style.css' />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+            getAll();
+            getHot()
+           getNew(),
+           getSale(),
+           getTieuThuyet(),
+           getVanHoc()
+        }
+    </script>
+    <header>
+        <nav>
+            <p class="logo">Book Store</p>
+
+            <ul>
+                <li><a href="/">Trang Chủ</a></li>
+                <li><a href="#">Sản Phẩm</a></li>
+                <li><a href="./cart.html">Giỏ Hàng</a></li>
+
+                <!-- <li><a href="./admin.html">Admin</a></li> -->
+                <li><a href="#">Tài Khoản</a></li>
+            </ul>
+            <!-- <button class="btn">Sign Up  </button> -->
+        </nav>
+        <div class="content">
+            <p>We've got your morning covered with</p>
+            <h1>Book</h1>
+            <p>It is best to start your day with a book. Discover the <br>
+                best story you will ever have. We provide the best <br>
+                for our customers.</p>
+            <br>
+            <button type="submit" class="btn">Order Now</button>
+
+        </div>
+
+    </header>
+
+    <div class="container">
+        <div class="content-2">
+
+            <div class="left">
+
+                <h2>Discover the best book</h2>
+                <p>Book Store is a book shop that provides you with quality book that helps boost your productivity and
+                    helps build your mood. Having a book is good, but having a book real is greater. There is no doubt
+                    that you will enjoy this book more than others you have ever tasted.
+                </p>
+                <br>
+                <button type="submit" class="btn">Order Now</button>
+            </div>
+
+            <div class="right">
+                <img src="./public/images//Download Book Png 7 HQ PNG Image _ FreePNGImg.png" alt="" width="700px"
+                    height="455px">
+            </div>
+        </div>
+
+        <!-- <img src="./public/images//wave.png" alt="" width="800px" height="180"> -->
+
+        <div class="content-3">
+            <h2>Tất cả sách</h2><br>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eos.</p><br>
+            <div class="box" id="showAll">
+                <!-- {{#each pros}}
+                   <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+                    <div class="box1 mr1">
+                        <img src="./public/images//{{this.image}}" alt="">
+                        <h4>{{this.name}}</h4>
+                        <p><del>{{this.price_1}}</del></p>
+                        <h5>{{this.price_2}}</h5>
+                        <button class="btn-order" style ="margin: auto; margin-top: 20px;">Đặt hàng ngay</button>
+                    </div>
+                </a>
+                {{/each}}
+    
+                {{!-- <div class="box1 mr1">
+                    <img src="./public/images//muonkiepnhansinh2.jpg" alt="">
+                    <h4>Muôn kiếp nhân sinh 2</h4>
+                    <p><del>200</del></p>
+                    <h5>$8.50</h5>
+                    <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+                </div> --}}
+                {{!-- <div class="box1 mr1">
+                    <img src="./public/images//muonkiepnhansinh3.jpg" alt="">
+                    <h4>Muôn kiếp nhân sinh 3</h4>
+                    <p><del>200</del></p>
+                    <h5>$8.50</h5>
+                    <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+                </div>
+                <div class="box1 mr1">
+                    <a href="./pages/detail.html"><img src="./public/images//damtreodaiduongden.png" alt="">
+                        <h4>Đám trẻ ở đại dương đen</h4>
+                        <p><del>200</del></p>
+                        <h5>$8.50</h5>
+                    </a>
+                    <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+                </div> --}} -->
+
+            </div>
+        </div>
+        <button class="view-more">Xem thêm</button>
+
+
+        <div class="content-3">
+            <h2>Sách nổi bật</h2><br>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eos.</p><br>
+            <div class="box" id="showHot">
+                <!-- {{#each hotProducts}}
+                <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+                    <div class="box1 mr1">
+                        <img src="./public/images//{{this.image}}" alt="">
+                        <h4>{{this.name}}</h4>
+                        <p><del>{{this.price_1}}</del></p>
+                        <h5>{{this.price_2}}</h5>
+                        <button class="btn-order" style="margin: auto; margin-top: 20px;">Đặt hàng ngay</button>
+                    </div>
+                </a>
+                {{/each}} -->
+            </div>
+        </div>
+        <button class="view-more">Xem thêm</button>
+
+
+        <div class="content-3">
+            <h2>Sách giảm giá</h2><br>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eos.</p><br>
+            <div class="box" id="showSale">
+                <!-- {{#each saleProducts}}
+                <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+                    <div class="box1 mr1">
+                        <img src="./public/images//{{this.image}}" alt="">
+                        <h4>{{this.name}}</h4>
+                        <p><del>{{this.price_1}}</del></p>
+                        <h5>{{this.price_2}}</h5>
+                        <button class="btn-order" style="margin: auto; margin-top: 20px;">Đặt hàng ngay</button>
+                    </div>
+                </a>
+                {{/each}} -->
+            </div>
+        </div>
+        <button class="view-more">Xem thêm</button>
+
+        <div class="content-3">
+            <h2>Sách mới</h2><br>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eos.</p><br>
+            <div class="box" id="showNew">
+                <!-- {{#each newProducts}}
+                <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+                    <div class="box1 mr1">
+                        <img src="./public/images//{{this.image}}" alt="">
+                        <h4>{{this.name}}</h4>
+                        <p><del>{{this.price_1}}</del></p>
+                        <h5>{{this.price_2}}</h5>
+                        <button class="btn-order" style="margin: auto; margin-top: 20px;">Đặt hàng ngay</button>
+                    </div>
+                </a>
+                {{/each}} -->
+            </div>
+        </div>
+        <button class="view-more">Xem thêm</button>
+
+
+        <div class="content-3">
+            <h2>Sách văn học</h2><br>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eos.</p><br>
+            <div class="box" id="showVanHoc">
+                <!-- {{#each vanhoc}}
+                <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+                    <div class="box1 mr1">
+                        <img src="./public/images//{{this.image}}" alt="">
+                        <h4>{{this.name}}</h4>
+                        <p><del>{{this.price_1}}</del></p>
+                        <h5>{{this.price_2}}</h5>
+                        <button class="btn-order" style="margin: auto; margin-top: 20px;">Đặt hàng ngay</button>
+                    </div>
+                </a>
+                {{/each}} -->
+
+            </div>
+        </div>
+        <div class="content-4">
+            <h2>Tại sao nên chọn chúng tôi?</h2><br>
+            <p>We don’t just make your book, we make your day!</p><br>
+            <div class="box-2">
+                <div class="box2 mr1">
+                    <img src="./public/images//book.png" alt="">
+                    <h3>Bìa Sách Đẹp</h3>
+                    <p>
+                        Lorem ipsum <br>dolor sit amet.
+                    </p>
+                </div>
+                <div class="box2 mr1">
+                    <img src="./public/images//award.png" alt="">
+                    <h3>Chất Lượng Cao</h3>
+                    <p>We provide the
+                        <br>highest quality
+                    </p>
+                </div>
+                <div class="box2 mr1">
+                    <img src="./public/images//perks.png" alt="">
+                    <h3>Khác Biệt</h3>
+                    <p> Lorem ipsum <br>dolor sit amet.
+                    </p>
+                </div>
+                <div class="box2 mr1">
+                    <img src="./public/images//coin.png" alt="">
+                    <h3>Giá Hợp Lí</h3>
+                    <p>Our Book prices are
+                        <br>easy to afford
+                    </p>
+                </div>
+            </div><br>
+            <div class="content-3">
+                <h2>Sách tiểu thuyết</h2><br>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eos.</p><br>
+                <div class="box" id="showTieuThuyet">
+                    <!-- {{#each tieuthuyet}}
+                    <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+                        <div class="box1 mr1">
+                            <img src="./public/images//{{this.image}}" alt="">
+                            <h4>{{this.name}}</h4>
+                            <p><del>{{this.price_1}}</del></p>
+                            <h5>{{this.price_2}}</h5>
+                            <button class="btn-order" style="margin: auto; margin-top: 20px;">Đặt hàng ngay</button>
+                        </div>
+                    </a>
+                    {{/each}} -->
+
+                    <!-- <div class="box1 mr1">
+                            <img src="./public/images//muonkiepnhansinh.png" alt="">
+                            <h4>Muôn kiếp nhân sinh</h4>
+                            <p><del>200</del></p>
+                            <h5>$8.50</h5>
+                            <button class="btn" style="margin: auto; margin-top: 20px;">Order Now</button>
+                        </div>
+                        <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+                        <div class="box1 mr1">
+                            <img src="./public/images//muonkiepnhansinh2.jpg" alt="">
+                            <h4>Muôn kiếp nhân sinh 2</h4>
+                            <p><del>200</del></p>
+                            <h5>$8.50</h5>
+                            <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+                        </div></a>
+                        <div class="box1 mr1">
+                            <img src="./public/images//muonkiepnhansinh3.jpg" alt="">
+                            <h4>Muôn kiếp nhân sinh 3</h4>
+                            <p><del>200</del></p>
+                            <h5>$8.50</h5>
+                            <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+                        </div>
+                        <div class="box1 mr1">
+                            <img src="./public/images//damtreodaiduongden.png" alt="">
+                            <h4>Đám trẻ ở đại dương đen</h4>
+                            <p><del>200</del></p>
+                            <h5>$8.50</h5>
+                            <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+                        </div>
+    
+                    </div> -->
+                </div>
+                <button class="view-more">Xem thêm</button> 
+
+                    <!-- 
+                <p>Great ideas start with great book, Lets help you achieve that</p><br>
+                <h3>Get started today.</h3><br>
+                <button class="btn" style="margin: auto;">Join Us</button> -->
+                </div><br>
+                <div class="banner-2">
+                    <div id="b1"></div>
+                    <div id="b2"></div>
+                    <div id="b3"></div>
+                    <div id="b4"></div>
+                    <div id="b5">
+                        <h2>Get a chance to have an
+                            <br>Amazing morning
+                        </h2>
+                        <p>We are giving you are one time opportunity to <br>
+                            experience a better life with book.</p><br>
+                        <button class="btn" style="margin-left: 93px;">Order Now</button>
+                    </div>
+                </div>
+                <div class="content-5">
+
+                    <!-- <h2>Our book perfection feedback</h2>
+                <p>Our customers has amazing things to say about us</p> -->
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+            <footer>
+                <div class="row">
+                    <div class="col">
+                        <h3>Book Store</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                            has been
+                            the
+                            industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of
+                            type
+                        </p>
+                    </div>
+                    <div class="col">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="">Menu</a></li>
+                            <li><a href="">Features</a></li>
+                            <li><a href="">News & Blogs</a></li>
+                            <li><a href="">Help & Supports</a></li>
+
+
+                        </ul>
+                    </div>
+                    <!-- 
+                <div class="col"><h3>Company</h3>
+                    <ul>
+                        <li><a href="">How we work</a></li>
+                        <li><a href="">Terms of service</a></li>
+    
+                        <li><a href="">Pricing</a></li>
+                        <li><a href="">FAQ</a></li>
+    
+    
+                    </ul></div>  -->
+                    <div class="col">
+                        <h3>Liên hệ</h3>
+                        <ul>
+                            <li><a href="">QTSC, Tân Chánh Hiệp,<br> Quận 12, TPHCM</a></li>
+                            <li><a href="">+1 202-918-2132</a></li>
+
+                            <li><a href="">thivcps28621@mail.com</a></li>
+                            <li><a href="">www..com</a></li>
+
+
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>Nhận thông báo</h3>
+                        <form>
+                            <box-icon name='envelope'></box-icon>
+                            <input type="email" placeholder="Enter email" required>
+
+                            <button type="submit"><box-icon name='right-arrow-alt'></box-icon></button>
+                        </form>
+                        <!-- <div class="social-icon">
+                        <box-icon class="fab" name='facebook' type='logo'></box-icon>
+                        <box-icon class="fab" name='twitter' type='logo'></box-icon>
+                        <box-icon class="fab" name='instagram' type='logo'></box-icon>
+                    </div> -->
+                    </div>
+
+                </div>
+            </footer>
+</body>
+
+</html>
+<script src="./index.js"></script>

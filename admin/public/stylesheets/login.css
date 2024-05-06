@@ -1,0 +1,292 @@
+/* header --------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 1366px;
+    margin: 0 auto;
+}
+
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    box-shadow: 0px 8px 6px -6px rgba(249, 192, 106, 0.42);
+    background-size: cover;
+    background-position: center;
+    padding: 34px 93px;
+
+}
+
+.logo {
+    width: 200px;
+    cursor: pointer;
+    color: #131313;
+    font-family: 'Clicker Script';
+
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+nav ul {
+    list-style: none;
+    width: 100%;
+    text-align: right;
+
+
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 10px 20px;
+}
+
+nav ul li a {
+    color: #131313;
+    text-decoration: none;
+    font-family: 'Playfair Display';
+}
+
+
+
+/* content */
+.container{
+    margin-top: 50px;
+}
+.container .content {
+   
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.container .content #content-full {
+
+    width: 800px;
+    height: 400px;
+    background: #B0D8DA;
+    position: absolute;
+}
+
+.container .content #content-right {
+    margin-left: 300px;
+    width: 500px;
+    height: 400px;
+    flex-shrink: 0;
+    border-radius: 36px 0 0 36px;
+    background: #FFF9F1;
+    box-shadow: #131313;
+    position: absolute;
+}
+
+.content-right-contents h2 {
+    text-align: center;
+    color: var(--coffee, #131313);
+    font-family: 'Playfair Display';
+    font-size: 45px;
+    font-style: normal;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.email-inp {
+    width: 250px;
+    margin-left: 125px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: none;
+
+    
+}
+.pass-inp {
+    width: 250px;
+    margin-left: 125px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: none;
+
+}
+p {
+    width: 250px;
+    margin-left: 125px;
+    margin-bottom: 15px;
+    padding: 15px;
+    text-align: center;
+
+}
+p a{
+    text-decoration: none;
+    text-align: center;
+}
+.error{
+    text-align: center;
+    color:red;
+}
+
+.container .content #content-book {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    flex-shrink: 0;
+    background: url(/img/books.png) no-repeat;
+    background-size: contain;
+    margin-top: 100px;
+
+}
+
+
+
+
+
+
+/* button  */
+.btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 24px;
+    background: #F9C06A;
+    color: #1E1E1E;
+    font-family: 'Playfair Display';
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.btn:hover {
+    background-color: #23c483;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+
+
+
+
+/* footer */
+footer {
+
+    width: 100%;
+    height: 400px;
+    bottom: 0;
+
+    background: rgb(221, 221, 221);
+    background-size: cover;
+    color: #000000;
+    padding: 100px 0 30px;
+    font-size: 13px;
+    line-height: 20px;
+
+}
+
+.row {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+
+
+}
+
+.col {
+
+    padding: 10px;
+}
+
+
+.col h3 {
+    width: fit-content;
+    border-bottom: 1px solid #000000;
+    margin: 20px 0;
+    color: #000000;
+    font-family: 'Playfair Display';
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.col p {
+    width: 380px;
+    height: 123px;
+    flex-shrink: 0;
+    color: #000000;
+    font-family: 'Playfair Display';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+ul li {
+    list-style: none;
+    margin-bottom: 12px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+ #thongbao{
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #000000;
+    margin-bottom: 50px;
+}
+
+ #thongbao input {
+    width: 100%;
+    background: transparent;
+    color: #000000;
+    border: 0;
+    outline: none;
+
+}
+
+ #thongbao button {
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.social-icon .fab {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #000;
+
+    margin-right: 15px;
+    cursor: pointer;
+}
