@@ -1,0 +1,20 @@
+<header>
+  <nav>
+      <p class="logo">iBook</p>
+
+      <ul>
+          <li><a [routerLink]="['home']">Trang Chủ</a></li>
+          <li><a [routerLink]="['product']">Sản Phẩm</a></li>
+          <li><a [routerLink]="['cart']">Giỏ Hàng</a></li>
+          <li><a *ngIf="!isLogin" [routerLink]="['login']" >Đăng nhập</a></li>
+          <li><a *ngIf="!isLogin" [routerLink]="['register']" >Đăng ký</a></li>
+          <!-- <li><a [routerLink]="['my-account']" *ngIf="isLogin">Tài khoản</a></li> -->
+          <li><a *ngIf="isADM" [routerLink]="['category-list']">Admin</a></li>
+          <li style="right: 0;"><strong><a *ngIf="isLogin" >Xin chào {{isLogin.name}}</a></strong></li>
+          <li><a *ngIf="isLogin" (click)="onLogout()">Đăng xuất</a></li>
+      </ul>
+      <!-- <button class="btn">Sign Up  </button> -->
+  </nav>
+</header>
+
+

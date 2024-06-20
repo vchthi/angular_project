@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const categoryController = require("../mongo/category.controller");
+const authen = require("../middleware/authen");
 
 
 //http:/localhost:3000/categories
@@ -82,6 +83,7 @@ router.get("/search/:key/:value", async (req, res) => {
     res.status(500).json({ message: error });
   }
 });
+
 
 module.exports = router;
 

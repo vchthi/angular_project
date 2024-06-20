@@ -1,0 +1,308 @@
+<div class="content">
+
+  <p style="margin-top: 9%;">We've got your morning covered with</p>
+  <h1>Book</h1>
+  <p>It is best to start your day with a book. Discover the <br>
+    best story you will ever have. We provide the best <br>
+    for our customers.</p>
+  <br>
+  <button type="submit" class="btn">Order Now</button>
+
+</div>
+
+<div class="container">
+  <div class="content-2">
+    <div class="left">
+      <h2>Discover the best book</h2>
+      <p>Book Store is a book shop that provides you with quality book that helps boost your productivity and
+        helps build your mood. Having a book is good, but having a book real is greater. There is no doubt
+        that you will enjoy this book more than others you have ever tasted.
+      </p>
+      <br>
+      <button type="submit" class="btn">Order Now</button>
+    </div>
+
+    <div class="right">
+      <img src="assets/images/Download Book Png 7 HQ PNG Image _ FreePNGImg.png" alt="" width="700px" height="455px">
+    </div>
+  </div>
+
+  <!-- <img src="./public/images//wave.png" alt="" width="800px" height="180"> -->
+
+  <div class="content-3">
+    <h2>Tất cả sách</h2><br>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eos.</p><br>
+    <div class="box" id="showAll" >
+      <div class="box1 mr1" *ngFor="let product of products;">
+     <a style="text-decoration: none;" [routerLink]="['/product-detail/'+ product._id]" routerLinkActive="router-link-active">
+      <ng-container *ngIf="isExternalLink(product.image)">
+        <img [src]="product.image" alt="">
+      </ng-container>
+      <ng-container *ngIf="!isExternalLink(product.image)">
+        <img [src]="'assets/images/' + product.image" alt="">
+      </ng-container>
+        <h4>{{product.name}}</h4>
+        <p><del>{{product.price_1}}</del></p>
+        <h5>{{product.price_2}}</h5>
+        <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button></a>
+      </div>
+      <!-- {{#each pros}}
+             <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+              <div class="box1 mr1">
+                  <img src="./public/images//{{this.image}}" alt="">
+                  <h4>{{this.name}}</h4>
+                  <p><del>{{this.price_1}}</del></p>
+                  <h5>{{this.price_2}}</h5>
+                  <button class="btn-order" style ="margin: auto; margin-top: 20px;">Đặt hàng ngay</button>
+              </div>
+          </a>
+          {{/each}}
+
+
+          {{!-- <div class="box1 mr1">
+              <img src="./public/images//muonkiepnhansinh3.jpg" alt="">
+              <h4>Muôn kiếp nhân sinh 3</h4>
+              <p><del>200</del></p>
+              <h5>$8.50</h5>
+              <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+          </div>
+          <div class="box1 mr1">
+              <a href="./pages/detail.html"><img src="./public/images//damtreodaiduongden.png" alt="">
+                  <h4>Đám trẻ ở đại dương đen</h4>
+                  <p><del>200</del></p>
+                  <h5>$8.50</h5>
+              </a>
+              <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+          </div> --}} -->
+
+    </div>
+  </div>
+  <button class="view-more">Xem thêm</button>
+
+
+  <!-- <div class="content-3">
+    <h2>Sách nổi bật</h2><br>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eos.</p><br>
+    <div class="box" id="showHot" >
+   <div class="box1 mr1" *ngFor="let product of hotProducts">
+    <a style="text-decoration: none;" [routerLink]="['/product-detail/'+product._id]" routerLinkActive="router-link-active">
+        <img src="/assets/images/{{product.image}}" alt="">
+
+        <h4>{{product.name}}</h4>
+        <p><del>{{product.price_1}}</del></p>
+        <h5>{{product.price_2}}</h5>
+        <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+      </a>    </div> -->
+      <!-- {{#each hotProducts}}
+          <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+              <div class="box1 mr1">
+                  <img src="./public/images//{{this.image}}" alt="">
+                  <h4>{{this.name}}</h4>
+                  <p><del>{{this.price_1}}</del></p>
+                  <h5>{{this.price_2}}</h5>
+                  <button class="btn-order" style="margin: auto; margin-top: 20px;">Đặt hàng ngay</button>
+              </div>
+          </a>
+          {{/each}} -->
+    <!-- </div>
+  </div>
+  <button class="view-more">Xem thêm</button> -->
+
+
+  <!-- <div class="content-3">
+    <h2>Sách giảm giá</h2><br>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eos.</p><br>
+    <div class="box" id="showSale">
+      <div class="box1 mr1" *ngFor="let product of saleProducts;">
+        <a style="text-decoration: none;" [routerLink]="['/product-detail/'+product._id]" routerLinkActive="router-link-active">
+            <img src="/assets/images/{{product.image}}" alt="">
+
+            <h4>{{product.name}}</h4>
+            <p><del>{{product.price_1}}</del></p>
+            <h5>{{product.price_2}}</h5>
+            <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+          </a>    </div> -->
+      <!-- {{#each saleProducts}}
+          <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+              <div class="box1 mr1">
+                  <img src="./public/images//{{this.image}}" alt="">
+                  <h4>{{this.name}}</h4>
+                  <p><del>{{this.price_1}}</del></p>
+                  <h5>{{this.price_2}}</h5>
+                  <button class="btn-order" style="margin: auto; margin-top: 20px;">Đặt hàng ngay</button>
+              </div>
+          </a>
+          {{/each}} -->
+    <!-- </div>
+  </div>
+  <button class="view-more">Xem thêm</button> -->
+
+  <!-- <div class="content-3">
+    <h2>Sách mới</h2><br>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eos.</p><br>
+    <div class="box" id="showNew">
+      <div class="box1 mr1" *ngFor="let product of newProducts;">
+        <a style="text-decoration: none;" [routerLink]="['/product-detail/'+product._id]" routerLinkActive="router-link-active">
+            <img src="/assets/images/{{product.image}}" alt="">
+
+            <h4>{{product.name}}</h4>
+            <p><del>{{product.price_1}}</del></p>
+            <h5>{{product.price_2}}</h5>
+            <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+          </a>    </div> -->
+      <!-- {{#each newProducts}}
+          <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+              <div class="box1 mr1">
+                  <img src="./public/images//{{this.image}}" alt="">
+                  <h4>{{this.name}}</h4>
+                  <p><del>{{this.price_1}}</del></p>
+                  <h5>{{this.price_2}}</h5>
+                  <button class="btn-order" style="margin: auto; margin-top: 20px;">Đặt hàng ngay</button>
+              </div>
+          </a>
+          {{/each}} -->
+    <!-- </div>
+  </div>
+  <button class="view-more">Xem thêm</button> -->
+
+
+  <!-- <div class="content-3">
+    <h2>Sách văn học</h2><br>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eos.</p><br>
+    <div class="box" id="showVanHoc">
+      <div class="box1 mr1" *ngFor="let product of vanHocProducts;">
+        <a style="text-decoration: none;" [routerLink]="['/product-detail/'+product._id]" routerLinkActive="router-link-active">
+            <img src="/assets/images/{{product.image}}" alt="">
+
+            <h4>{{product.name}}</h4>
+            <p><del>{{product.price_1}}</del></p>
+            <h5>{{product.price_2}}</h5>
+            <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button> -->
+          <!-- </a>    </div> -->
+      <!-- {{#each vanhoc}}
+          <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+              <div class="box1 mr1">
+                  <img src="./public/images//{{this.image}}" alt="">
+                  <h4>{{this.name}}</h4>
+                  <p><del>{{this.price_1}}</del></p>
+                  <h5>{{this.price_2}}</h5>
+                  <button class="btn-order" style="margin: auto; margin-top: 20px;">Đặt hàng ngay</button>
+              </div>
+          </a>
+          {{/each}} -->
+
+    <!-- </div>
+  </div> -->
+  <div class="content-4">
+    <h2>Tại sao nên chọn chúng tôi?</h2><br>
+    <p>We don’t just make your book, we make your day!</p><br>
+    <div class="box-2">
+      <div class="box2 mr1">
+        <img src="../assets/images/book.png" alt="">
+        <h3>Bìa Sách Đẹp</h3>
+        <p>
+          Lorem ipsum <br>dolor sit amet.
+        </p>
+      </div>
+      <div class="box2 mr1">
+        <img src="assets/images/award.png" alt="">
+        <h3>Chất Lượng Cao</h3>
+        <p>We provide the
+          <br>highest quality
+        </p>
+      </div>
+      <div class="box2 mr1">
+        <img src="assets/images/perks.png" alt="">
+        <h3>Khác Biệt</h3>
+        <p> Lorem ipsum <br>dolor sit amet.
+        </p>
+      </div>
+      <div class="box2 mr1">
+        <img src="assets/images/coin.png" alt="">
+        <h3>Giá Hợp Lí</h3>
+        <p>Our Book prices are
+          <br>easy to afford
+        </p>
+      </div>
+    </div><br>
+    <!-- <div class="content-3">
+      <h2>Sách tiểu thuyết</h2><br>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eos.</p><br>
+      <div class="box" id="showTieuThuyet"> -->
+        <!-- {{#each tieuthuyet}}
+              <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+                  <div class="box1 mr1">
+                      <img src="./public/images//{{this.image}}" alt="">
+                      <h4>{{this.name}}</h4>
+                      <p><del>{{this.price_1}}</del></p>
+                      <h5>{{this.price_2}}</h5>
+                      <button class="btn-order" style="margin: auto; margin-top: 20px;">Đặt hàng ngay</button>
+                  </div>
+              </a>
+              {{/each}} -->
+
+        <!-- <div class="box1 mr1">
+                      <img src="./public/images//muonkiepnhansinh.png" alt="">
+                      <h4>Muôn kiếp nhân sinh</h4>
+                      <p><del>200</del></p>
+                      <h5>$8.50</h5>
+                      <button class="btn" style="margin: auto; margin-top: 20px;">Order Now</button>
+                  </div>
+                  <a style="text-decoration: none;" href="/products/detail/{{this.id}}">
+                  <div class="box1 mr1">
+                      <img src="./public/images//muonkiepnhansinh2.jpg" alt="">
+                      <h4>Muôn kiếp nhân sinh 2</h4>
+                      <p><del>200</del></p>
+                      <h5>$8.50</h5>
+                      <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+                  </div></a>
+                  <div class="box1 mr1">
+                      <img src="./public/images//muonkiepnhansinh3.jpg" alt="">
+                      <h4>Muôn kiếp nhân sinh 3</h4>
+                      <p><del>200</del></p>
+                      <h5>$8.50</h5>
+                      <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+                  </div>
+                  <div class="box1 mr1">
+                      <img src="./public/images//damtreodaiduongden.png" alt="">
+                      <h4>Đám trẻ ở đại dương đen</h4>
+                      <p><del>200</del></p>
+                      <h5>$8.50</h5>
+                      <button class="btn" style="margin: auto;margin-top: 20px;">Order Now</button>
+                  </div>
+
+              </div> -->
+      <!-- </div>
+      <button class="view-more">Xem thêm</button> -->
+
+      <!--
+          <p>Great ideas start with great book, Lets help you achieve that</p><br>
+          <h3>Get started today.</h3><br>
+          <button class="btn" style="margin: auto;">Join Us</button> -->
+    </div><br>
+    <div class="banner-2">
+      <div id="b1"></div>
+      <div id="b2"></div>
+      <div id="b3"></div>
+      <div id="b4"></div>
+      <div id="b5">
+        <h2>Get a chance to have an
+          <br>Amazing morning
+        </h2>
+        <p>We are giving you are one time opportunity to <br>
+          experience a better life with book.</p><br>
+        <button class="btn" style="margin-left: 93px;">Order Now</button>
+      </div>
+    </div>
+    <div class="content-5">
+
+      <!-- <h2>Our book perfection feedback</h2>
+          <p>Our customers has amazing things to say about us</p> -->
+
+    </div>
+
+
+
+
+
+  </div>

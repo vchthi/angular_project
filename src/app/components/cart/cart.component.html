@@ -1,0 +1,62 @@
+<div class="container-cart">
+  <div class="content-cart">
+    <div class="box-left">
+      <table id="table-cart">
+        <thead>
+          <tr>
+            <th id="th-cart">STT</th>
+            <th id="th-cart">Sản phẩm</th>
+            <th id="th-cart">Tên</th>
+            <th id="th-cart">Số lượng</th>
+            <th id="th-cart">Giá</th>
+            <th style="text-align: center;">Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cart; let index = index">
+            <td id="td-cart">{{ index + 1 }}</td>
+            <td id="td-cart"> <ng-container *ngIf="isExternalLink(item.image)">
+              <img style="width: 50px;" [src]="item.image" alt="">
+            </ng-container>
+            <ng-container *ngIf="!isExternalLink(item.image)">
+              <img style="width: 50px;" [src]="'assets/images/' + item.image" alt="">
+            </ng-container></td>
+            <td id="td-cart">{{ item.name }}</td>
+            <td id="td-cart">
+              <input type="number" class="qty" [(ngModel)]="item.quantity" min="1" max="100">
+            </td>
+            <td id="td-cart">{{ (item.price_2 * item.quantity)}}</td>
+            <td id="td-cart"><button class="delPro" (click)="deleteCart(item._id)">Xóa</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="btn-choice">
+        <a [routerLink]="['/home']"><button class="btn-shop"><i class="fa-solid fa-angle-left"></i> Tiếp tục mua</button></a>
+        <a routerLink="/checkout"><button class="btn-check">Thanh toán <i class="fa-solid fa-chevron-right"></i></button></a>
+      </div>
+    </div>
+
+    <div style="margin-left: 15px;" class="box-right">
+      <div class="voucher">
+        <label for="">Mã giảm giá</label><br>
+        <input class="inp-text" type="text" name="" id="" placeholder="Nhập mã giảm giá">
+        <button class="but-apply" type="submit">Nhập</button>
+      </div>
+      <div class="total">
+        <div style="margin-bottom: 10px;">
+          <span>Giảm giá: </span>
+          <span style="float: right;">0</span><br>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <span>Tổng cộng: </span>
+          <span id="sumMoney" style="float: right;">{{sumMoney()}}</span><br>
+        </div>
+        <input type="checkbox" id="paymentCheckbox" required> Thanh toán khi nhận hàng
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <i class="fa-solid fa-truck-fast"></i> Giao hàng miễn phí trong tuần này
+  </div>
+</div>

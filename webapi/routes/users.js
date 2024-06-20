@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../mongo/user.controller");
+const jwt = require('jsonwebtoken');
 
 // Lấy danh sách user
 //http://localhost:3000/users
@@ -79,28 +80,70 @@ router.post('/', async(req, res)=>{
 })
 
 //api dang nhap
-//http://localhost:3000/users/login
-router.post('/login', async(req, res)=>{
+// http://localhost:3000/users/login
+// router.post('/login', async(req, res)=>{
+//   try {
+//     const {name, password} = req.body
+//     const result = await userController.login(req.body)
+
+//     return res.status(200).json(result)
+//   } catch (error) {
+//     console.log('lỗi đăng nhập', error);
+//     return res.status(500).json({mess: error})
+//   }
+// })
+
+router.post('/login', async (req, res) => {
   try {
-    const body = req.body
-    const result = await userController.login(body)
-    return res.status(200).json(result)
+    const { name, password } = req.body;
+    const result = await userController.login(req.body);
+
+    if (result) {
+      const access_token = jwt.sign({ _id: result._id, name: result.name, role: result.role }, 'chanhthi', { expiresIn: 60 });
+      const refresh_token = jwt.sign({ _id: result._id, name: result.name, role: result.role }, 'chanhthi', { expiresIn: 90 * 24 * 60 * 60 });
+      res.status(200).json({
+        ...result,
+        access_token,
+        refresh_token
+      });
+    } else {
+      res.status(401).json({ error: 'Sai tên đăng nhập hoặc mật khẩu' });
+    }
   } catch (error) {
     console.log('lỗi đăng nhập', error);
-    return res.status(500).json({mess: error})
+    return res.status(500).json({ mess: error.message });
+  }
+});
+
+
+
+
+
+router.post('/refresh-token',async function (req,res,next) {
+  try{
+    let { refresh_token }=req.body;
+    const data =jwt.verify(refresh_token,'chanhthi')
+    const access_token = jwt.sign({user:data.user},'chanhthi',{expiresIn: 1*60})
+    refresh_token = jwt.sign({user:data.user},'chanhthi',{expiresIn:90*24*60*60})
+    res.status(200).json({user:data.user,access_token,refresh_token})
+  }catch(error){
+res.status(401).json({error:error.message})
   }
 })
 
-
-router.post('/', async(req, res)=>{
+router.post('/register', async(req, res)=>{
   try {
-      const body = req.body
-      const result = await userController.register(body)
-      return res.status(200).json({NewUser : result})
+      const {name, email, password, repassword} = req.body
+      const result = await userController.register(req.body);
+      return res.status(200).json(result)
   } catch (error) {
       console.log('Thêm user không thành công', error);
       res.status(500).json({mess : error})
   }
 })
+
+
+
+
 
 module.exports = router;

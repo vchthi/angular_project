@@ -27,4 +27,5 @@ const productSchema = new Schema({
 
 
 })
+
 module.exports = mongoose.models.product || mongoose.model('product',productSchema) //kiểm tra xem có product chưa

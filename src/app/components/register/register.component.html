@@ -1,0 +1,37 @@
+<div class="container-login">
+  <div class="content-login">
+    <div id="content-full"></div>
+    <div id="content-right">
+      <div class="content-right-contents">
+        <h2>Đăng kí</h2>
+        <form [formGroup]="registerF" (ngSubmit)="onRegister()" id="loginForm" class="login-form">
+          <!-- <form id="loginForm" class="login-form" (ngSubmit)="onSubmit()"> -->
+            <small  class="error" *ngIf="registerF.get('name')?.hasError('minlength') && registerF.get('name')?.touched">Tên đăng nhập tối thiểu 6 kí tự</small>
+          <input formControlName="name" value="" class="email-inp" name="name" id="name" type="text"
+            placeholder="Tên đăng nhập">
+            <small class="error"
+            *ngIf="registerF.get('email')?.hasError('email') && registerF.get('email')?.touched">Email không hợp
+            lệ</small>
+          <input formControlName="email" value="" class="email-inp" name="email" id="email" type="text"
+            placeholder="Email">
+
+            <small class="error"
+            *ngIf="registerF.get('password')?.hasError('minlength') &&  registerF.get('password')?.touched">Mật khẩu phải có 6 kí tự</small>
+          <input formControlName="password" value="" class="pass-inp" name="password" id="pass" type="password"
+            placeholder="Mật khẩu">
+            <small  class="error"  *ngIf="registerF.hasError('mismatch') && registerF.get('repassword')?.touched">Mật khẩu không khớp</small>
+          <input formControlName="repassword" value="" class="pass-inp" name="repassword" id="pass" type="password"
+            placeholder="Nhập lại mật khẩu">
+
+
+
+          <p id="link-signup">Bạn đã có tài khoản? <br><a [routerLink]="['/login']">Đăng nhập ngay</a></p>
+          <div id="errorMessages" class="error"></div>
+          <!-- <button type="submit" class="btn" style="margin: 0 auto; margin-top: 20px;">Đăng kí</button> -->
+          <input style="margin: 0 auto; margin-top: 20px;" type="submit" class="btn" value="Đăng kí">
+        </form>
+      </div>
+    </div>
+    <div id="content-book"></div>
+  </div>
+</div>

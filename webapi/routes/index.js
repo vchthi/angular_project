@@ -8,33 +8,39 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 
+let currentPage = 1;
+let totalPage = 0;
 
-let currentpage=1;
-let totalpage=0
-const next=()=>{
-  if(currentpage<totalpage){
-    currentpage++
-    getAllPage(currentpage)
+const next = () => {
+  if (currentPage < totalPage) {
+    currentPage++;
+    getAllPage(currentPage);
   }
-}
+};
 
-const prev =()=>{
-  if(currentpage>1){
-    currentpage--
-    getAllPage(currentpage)
+const prev = () => {
+  if (currentPage > 1) {
+    currentPage--;
+    getAllPage(currentPage);
   }
+};
 
-const getAllPage = async(page=currentpage,limit= 10)=>{
-  const response = await fetch(
-    `http://localhost:3000/product?page=${page}&{limit}`
-  )
-  const data = await response.json();
-  console.log(data)
-  totalpage=data.countPage;
-  let kq=""
-  let stt=1
-  data.result.map((i)=>{
-    kq+=``
-  })
-}
-}
+const getAllPage = async (page = currentPage, limit = 10) => {
+  try {
+    const response = await fetch(`http://localhost:3000/product?page=${page}&limit=${limit}`);
+    const data = await response.json();
+    console.log(data);
+    totalPage = data.countPage;
+    let kq = "";
+    let stt = 1;
+    data.result.forEach((i) => {
+      kq += `
+       `;
+      stt++;
+    });
+    // Assuming there's an element with id 'results' to display the data
+    document.getElementById('results').innerHTML = kq;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};

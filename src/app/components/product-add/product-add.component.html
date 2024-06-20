@@ -1,0 +1,116 @@
+
+
+
+<div class="head-admin">
+  <p class="logo-admin">iBook</p>
+  <div class="search-container">
+    <input type="text" id="productSearch" placeholder="Tìm kiếm...">
+    <button onclick="searchProduct()" id="search">Tìm kiếm</button>
+  </div>
+
+  <div class="user-section">
+    <img src="/assets/images/worldtrigger.jpg" class="user-avatar">
+    <span class="user-name">User</span>
+  </div>
+</div>
+<div class="container-admin">
+  <div class="bor-left">
+    <div class="col-left">
+      <ul>
+        <li><a [routerLink]="['/product-list']" style="text-decoration: none;"><button class="manager-button"
+              id="btn"><i style="margin-right: 5px;" class="fa-solid fa-list"></i>Quản lí sản phẩm</button></a></li>
+        <li><a style="text-decoration: none;" [routerLink]="['/category-list']"><button class="manager-button"
+              id="btn"><i style="margin-right: 5px;" class="fa-solid fa-list"></i>Quản lí danh mục</button></a></li>
+        <!-- <li><a style="text-decoration: none;" href="#"><button class="manager-button" id="btn2"><i
+                style="margin-right: 5px;" class="fa-solid fa-cart-shopping"></i>Quản lí đơn
+              hàng</button></a></li>
+        <li><a style="text-decoration: none;" href="#"><button class="manager-button" id="btn2"> <i
+                style="margin-right: 5px;" class="fa-solid fa-right-from-bracket"></i>Đăng xuất</button></a>
+        </li> -->
+        <li><a style="text-decoration: none;" href="#"><button class="manager-button" id="btn2"></button></a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="bor-right">
+    <div class="col-right">
+      <div class="nav-add-header">
+        <h2 class="title-add-admin" style=" font-family: 'Playfair Display'; margin-top: 10px; text-align: center;">Thêm sản phẩm</h2><br>
+
+<div id="addProductModal">
+  <form id="formThemSanPham" (ngSubmit)="onSubmit()" [formGroup]="productForm">
+    <label for="name">Tên sản phẩm</label><br>
+    <input type="text" name="name" id="name" formControlName="name" class="form-control" placeholder="Nhập tên sản phẩm" aria-describedby="namehelpId" /><br><br>
+    <label for="price_1">Giá sản phẩm cũ</label><br>
+    <input type="number" name="price_1" id="price_1" formControlName="price_1" class="form-control" placeholder="Nhập giá cũ sản phẩm" aria-describedby="priceHelpId" /><br><br>
+    <label for="price_2">Giá sản phẩm mới</label><br>
+    <input type="number" name="price_2" id="price_2" formControlName="price_2" class="form-control" placeholder="Nhập giá mới sản phẩm" aria-describedby="priceHelpId" /><br><br>
+    <label for="image">Hình ảnh</label><br>
+    <!-- <input type="text" name="image" id="image" formControlName="image" class="form-control" placeholder="" aria-describedby="imageHelpId" /> -->
+    <input type="text" name="image" id="image" formControlName="image" class="form-control" placeholder="Nhập hình ảnh sản phẩm" aria-describedby="imageHelpId" /><br><br>
+
+    <label style="margin-right: 10px;" for="category">Danh mục</label>
+    <select name="category" id="category" formControlName="category" class="form-control">
+      <option *ngFor="let category of categories" [value]="category._id">{{category.name}}</option>
+    </select><br><br>
+    <label for="mota_1">Mô tả</label><br>
+    <textarea name="mota_1" id="mota_1" formControlName="mota_1" class="form-control" placeholder="Nhập mô tả sản phẩm" aria-describedby="descHelpId"></textarea><br><br>
+    <label for="mota_2">Thông tin sách</label><br>
+    <textarea name="mota_2" id="mota_2" formControlName="mota_2" class="form-control" placeholder="Nhập thông tin sản phẩm" aria-describedby="descHelpId"></textarea><br><br>
+    <button style="float: left;" class="add-button" type="submit">Thêm</button>
+    <a  [routerLink]="['/product-list']"><button style="float: right;" class="close-button" type="button">Đóng</button></a>
+  </form>
+</div>
+      </div>
+
+      <!-- <div id="addProductOverlay"></div>
+    <div id="addProductModal">
+      <h2>Thêm danh mục</h2><br>
+      <form id="formThemDanhMuc">
+        <label for="">Tên danh mục</label><br>
+        <input type="text" id="name" name="productName" placeholder="Nhập tên danh mục" required><br>
+        <button style="float: left;" class="add-button" type="button" onclick="addProduct()">Thêm</button>
+        <button style="float: right;" class="close-button" type="button">Đóng</button>
+      </form>
+    </div>
+-->
+      <form id="showcate">
+
+      </form>
+      <div id="editProductOverlay"></div>
+      <div id="editModal" class="modal">
+        <!-- <div class="modal-content">
+        <span class="close">&times;</span>
+
+        <div class="form">
+          <label for="">Tên sản phẩm</label>
+          <br />
+          <input value="${pro.name}" type="text" id="name" />
+          <br />
+          <label for="">Hình ảnh</label>
+          <br />
+          <input type="file" id="image"/>
+          <br />
+          <label for="">Giá</label>
+          <br />
+          <input type="text" id="price" value="${pro.price}" />
+           <br />
+          <label for="">Danh mục</label>
+          <br />
+          <select id="category">
+              <option value="Tivi">Tivi</option>
+              <option value="Tủ lạnh">Tủ lạnh</option>
+          </select>
+          <br />
+          <label for="">Mô tả</label>
+          <br />
+          <input value="${pro.mota}" type="text" id="description" />
+          <br />
+          <button id="addPro">Thêm</button>
+        </div>
+
+      </div> -->
+      </div>
+    </div>
+  </div>

@@ -3,13 +3,13 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   body {
     width: 1366px;
     margin: 0 auto;
     background: #F7F7F7;
   }
-  
+
   .logo {
     width: 200px;
     cursor: pointer;
@@ -22,16 +22,16 @@
     padding-top: 10px;
     margin-left: 50px;
   }
-  
+
   /* container */
   .container {
     margin-top: 10px;
     display: grid;
     grid-template-columns: 20% 80%;
-  
+
   }
-  
-  
+
+
   /* header */
   .head {
     display: flex;
@@ -42,16 +42,16 @@
     background-color: #fff;
     border-radius: 14px;
   }
-  
-  
+
+
   /* search */
   .search-container {
     margin-right: 30%;
     width: 40%;
-  
+
   }
-  
-  
+
+
   #productSearch{
     margin-top: 20px;
     padding: 13px;
@@ -66,40 +66,40 @@
     cursor: pointer;
     border-radius: 7px
   }
-  
+
   #search:hover {
     background-color: #45a049;
   }
-  
-  
-  
+
+
+
   /* user */
   .user-section {
     margin-right: 50px;
     display: flex;
     align-items: center;
   }
-  
+
   .user-avatar {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     margin-right: 10px;
   }
-  
+
   .user-name {
     font-weight: bold;
   }
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   .col-left li {
     list-style: none;
   }
-  
+
   .bor-left {
     width: 90%;
     height: 472px;
@@ -107,52 +107,51 @@
     border-radius: 14px;
     background: #FFF;
   }
-  
+
   .bor-right {
     width: 100%;
     padding: 10px 50px 50px 50px;
     border-radius: 14px;
     background: #FFF;
   }
-  
-  
+
+
   /* table */
-  
+
   table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
   }
-  
+
   table td,
   table th {
     text-align: center;
-    vertical-align: middle; 
-  
+    vertical-align: middle;
+
   }
-  
+
   th {
-  
+
     position: sticky;
     top: 0;
     background-color: #f2f2f2;
-  
+
   }
-  
+
   td:nth-child(6) {
     max-width: 250px;
     word-wrap: break-word;
   }
-  
   img {
     width: 70px;
     height: 100px;
   }
-  
+
   label {
     font-weight: bold;
   }
-  
+
   input {
     width: 100%;
     margin-top: 4px;
@@ -161,11 +160,11 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
-  
-  
+
+
   /* button */
   .manager-button {
-    display: block;
+
     width: 80%;
     padding: 15px;
     margin: 10px 0;
@@ -180,18 +179,18 @@
     margin-left: 10%;
     font-family: Barlow;
   }
-  
-  #btn {
+
+  #btn:hover {
     background-color: rgba(0, 176, 116, 0.15);
     color: #00B074;
     transition: .1s ease;
   }
-  
+/*
   #btn2:hover {
     background-color: rgba(0, 176, 116, 0.15);
     color: #00B074;
     transition: .1s ease;
-  }
+  } */
   .add-pro {
     float: right;
     display: inline-block;
@@ -207,13 +206,13 @@
     transition: background-color 0.3s, color 0.3s;
     margin-bottom: 20px;
   }
-  
+
   .add-pro:hover {
     background-color: rgba(0, 176, 116, 0.15);
     color: #00B074;
   }
-  
-  
+
+
   /* btn sua, xoa */
   .edit-button,
   .add-button,
@@ -226,7 +225,7 @@
     border-radius: 3px;
     cursor: pointer;
   }
-  
+
   .delete-button,
   .close-button,
   .closeEditPro {
@@ -238,19 +237,19 @@
     border-radius: 3px;
     cursor: pointer;
   }
-  
+
   th,
   td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
   }
-  
+
   h2 {
     text-align: center;
   }
-  
-  
+
+
   /* modal */
   #addProductModal {
     width: 400px;
@@ -281,9 +280,9 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
   }
-  
-  
-  
+
+
+
   #editProductOverlay {
     display: none;
     position: fixed;
@@ -306,8 +305,8 @@
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-  } 
-  
+  }
+
   .modal {
     width: 400px;
     height: 500px;
@@ -322,7 +321,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
-  /* 
+  /*
   .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -330,4 +329,3 @@
     border: 1px solid #888;
     width: 80%;
   } */
-  

@@ -1,0 +1,25 @@
+#formThemSanPham{
+    padding-bottom: 15px;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 50px;
+}
+
+ input[type="text"] {
+    padding: 13px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+
+
+
+
+
+
+
+
+
+
+

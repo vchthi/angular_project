@@ -1,0 +1,21 @@
+<div class="container-login">
+  <div class="content-login">
+      <div id="content-full"></div>
+      <div id="content-right">
+          <div class="content-right-contents">
+              <h2 style="margin-bottom: 30px; margin-top: 70px;">Đăng nhập</h2>
+              <form (ngSubmit)="onLogin()" [formGroup]="loginForm" id="loginForm" class="login-form">
+                <small class="error" *ngIf="loginForm.get('name')?.invalid && loginForm.get('name')?.touched">Tên đăng nhập chưa đúng</small>
+                  <input class="email-inp" name="Name" id="name" type="text" placeholder="Tên đăng nhập" formControlName="name"><br>
+                  <small class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">Mật khẩu phải có 6 kí tự</small>
+                  <input class="pass-inp" name="password" id="pass" type="password" placeholder="Mật khẩu" formControlName="password"><br>
+
+                  <p id="link-signup">Bạn chưa có tài khoản? <br><a [routerLink]="['/register']">Đăng kí ngay</a></p>
+                  <div id="errorMessages" class="error"></div>
+                  <input style="margin: 0 auto; margin-top: 20px;" type="submit" class="btn-login" value="Đăng nhập">
+              </form>
+          </div>
+      </div>
+      <div id="content-book"></div>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+
+<div class="head-admin">
+  <p class="logo-admin">iBook</p>
+  <div class="search-container">
+    <input type="text" id="productSearch" placeholder="Tìm kiếm...">
+    <button onclick="searchProduct()" id="search">Tìm kiếm</button>
+  </div>
+
+  <div class="user-section">
+    <img src="/assets/images/worldtrigger.jpg" class="user-avatar">
+    <span class="user-name">User</span>
+  </div>
+</div>
+<div class="container-admin">
+  <div class="bor-left">
+    <div class="col-left">
+      <ul>
+        <li><a [routerLink]="['/product-list']" style="text-decoration: none;"><button class="manager-button"
+              id="btn"><i style="margin-right: 5px;" class="fa-solid fa-list"></i>Quản lí sản phẩm</button></a></li>
+        <li><a style="text-decoration: none;" [routerLink]="['/category-list']"><button class="manager-button"
+              id="btn"><i style="margin-right: 5px;" class="fa-solid fa-list"></i>Quản lí danh mục</button></a></li>
+        <!-- <li><a style="text-decoration: none;" href="#"><button class="manager-button" id="btn2"><i
+                style="margin-right: 5px;" class="fa-solid fa-cart-shopping"></i>Quản lí đơn
+              hàng</button></a></li>
+        <li><a style="text-decoration: none;" href="#"><button class="manager-button" id="btn2"> <i
+                style="margin-right: 5px;" class="fa-solid fa-right-from-bracket"></i>Đăng xuất</button></a>
+        </li> -->
+        <li><a style="text-decoration: none;" href="#"><button class="manager-button" id="btn2"></button></a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="bor-right">
+    <div class="col-right">
+      <div class="nav-add-header">
+        <h2 class="title-add-admin" style=" font-family: 'Playfair Display'; margin-top: 10px; text-align: center;">Chỉnh sửa danh mục</h2>
+        <div id="addProductModal">
+          <form (ngSubmit)="onSubmit()" [formGroup]="categoryForm" id="formThemSanPham">
+            <!-- <label for="name">Id</label><br> -->
+            <input type="hidden" id="_id" name="_id" placeholder="Nhập tên danh mục" formControlName="_id" [(ngModel)]="category._id" required><br>
+            <small *ngIf="!categoryForm.get('_id')?.valid && categoryForm.get('_id')?.touched" >Yêu cầu Id</small><br>
+            <label for="name">Tên danh mục</label><br>
+            <input type="text" id="name" name="name" placeholder="Nhập tên danh mục" formControlName="name" [(ngModel)]="category.name" required><br>
+            <small *ngIf="!categoryForm.get('name')?.valid && categoryForm.get('name')?.touched" >Tên danh mục cần có ít nhất 6 kí tự</small><br>
+            <label for="description">Mô tả</label><br>
+            <input type="text" id="description" name="description" placeholder="Nhập mô tả danh mục" formControlName="description" required><br>
+            <small *ngIf="!categoryForm.get('description')?.valid && categoryForm.get('description')?.touched" >Mô tả cần có ít nhất 6 kí tự</small>
+            <br><button style="float: left;" class="add-button" type="submit">Sửa</button>
+           <a [routerLink]="['/category-list']"><button style="float: right;" class="close-button" type="button">Đóng</button></a>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- <div id="addProductOverlay"></div>
+    <div id="addProductModal">
+      <h2>Thêm danh mục</h2><br>
+      <form id="formThemDanhMuc">
+        <label for="">Tên danh mục</label><br>
+        <input type="text" id="name" name="productName" placeholder="Nhập tên danh mục" required><br>
+        <button style="float: left;" class="add-button" type="button" onclick="addProduct()">Thêm</button>
+        <button style="float: right;" class="close-button" type="button">Đóng</button>
+      </form>
+    </div>
+-->
+      <form id="showcate">
+
+      </form>
+      <div id="editProductOverlay"></div>
+      <div id="editModal" class="modal">
+        <!-- <div class="modal-content">
+        <span class="close">&times;</span>
+
+        <div class="form">
+          <label for="">Tên sản phẩm</label>
+          <br />
+          <input value="${pro.name}" type="text" id="name" />
+          <br />
+          <label for="">Hình ảnh</label>
+          <br />
+          <input type="file" id="image"/>
+          <br />
+          <label for="">Giá</label>
+          <br />
+          <input type="text" id="price" value="${pro.price}" />
+           <br />
+          <label for="">Danh mục</label>
+          <br />
+          <select id="category">
+              <option value="Tivi">Tivi</option>
+              <option value="Tủ lạnh">Tủ lạnh</option>
+          </select>
+          <br />
+          <label for="">Mô tả</label>
+          <br />
+          <input value="${pro.mota}" type="text" id="description" />
+          <br />
+          <button id="addPro">Thêm</button>
+        </div>
+
+      </div> -->
+      </div>
+    </div>
+  </div>

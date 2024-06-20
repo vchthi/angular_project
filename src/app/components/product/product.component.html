@@ -1,0 +1,49 @@
+<div class="container-product">
+  <div class="bor-left-product">
+      <div class="col-left-product">
+          <ul>
+              <li><a style="text-decoration: none;" ><button class="manager-button-product"
+                          ><strong style="font-family:Playfair Display;">DANH MỤC SẢN PHẨM</strong></button></a></li><br>
+                          <li><a (click)="getAllProducts()" style="text-decoration: none;" href="#"><button class="category-button"
+                            ><i style="margin-right: 10px; color: #3577F0;" class="fa-solid fa-list"></i>Tất cả sản phẩm</button></a></li>
+              <li  *ngFor="let category of categories"><a (click)="getByCategory(category._id)"  style="text-decoration: none;" ><button class="category-button"
+                         ><i style="margin-right: 10px; color: #3577F0;" class="fa-solid fa-list"></i>{{category.name}}</button></a></li><br>
+              <!-- <li><a style="text-decoration: none;" href="#"><button class="manager-button" id="btn2"><i
+                style="margin-right: 5px;" class="fa-solid fa-cart-shopping"></i>Quản lí đơn
+              hàng</button></a></li>
+        <li><a style="text-decoration: none;" href="#"><button class="manager-button" id="btn2"> <i
+                style="margin-right: 5px;" class="fa-solid fa-right-from-bracket"></i>Đăng xuất</button></a>
+        </li> -->
+
+          </ul>
+      </div>
+
+  </div>
+
+  <div class="bor-right-product">
+      <div class="col-right">
+        <form id="search-list-product" (submit)="findByName(name)">
+          <input [(ngModel)]="name" type="text" name="search" class="search-input-product" placeholder="Nhập sách bạn muốn tìm">
+          <input type="submit" value="Tìm kiếm" class="submit-button">
+        </form>
+
+          <div class="content-3-product">
+              <div class="box-product"  >
+                  <div class="box1-product mr1" *ngFor="let product of products;">
+                    <a style="text-decoration: none;" [routerLink]="['/product-detail/'+ product._id]" routerLinkActive="router-link-active">
+                    <ng-container *ngIf="isExternalLink(product.image)">
+                      <img [src]="product.image" alt="">
+                    </ng-container>
+                    <ng-container *ngIf="!isExternalLink(product.image)">
+                      <img [src]="'assets/images/' + product.image" alt="">
+                    </ng-container>
+                      <h4>{{product.name}}</h4>
+                      <p><del>{{product.price_1}}</del></p>
+                      <h5>{{product.price_2}}</h5>
+                      <button class="btn-product" style="margin: auto; margin-top: 20px;">Mua</button></a>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>

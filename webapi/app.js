@@ -8,15 +8,12 @@ const cors = require('cors');
 
 require('./mongo/category.model')
 require('./mongo/product.model')
-require('./mongo/athletes.model')
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
-var categoriesRouter = require('./routes/categories')
-var athletesRouter = require('./routes/athletes')
-
+var categoriesRouter = require('./routes/categories');
 
 
 var app = express();
@@ -44,8 +41,6 @@ app.use('/',indexRouter)
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/categories', categoriesRouter);
-app.use('/athletes', athletesRouter);
-
 
 
 // catch 404 and forward to error handler

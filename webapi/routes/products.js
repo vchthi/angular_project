@@ -6,18 +6,19 @@ const productController = require("../mongo/product.controller");
 
 
 
-// them sp mơi
-router.post("/new", upload.single("image"), async (req, res) => {
+
+
+router.post("/", async (req, res, next) => {
   try {
-    const body = req.body;
-    body.image = req.file.originalname;
-    const result = await productController.insert(body);
-    return res.status(200).json({ Newproduct: result });
+    const { name, image, price_1, price_2, mota_1, mota_2, category } = req.body;
+    const product = await productController.insert({ name, image, price_1, price_2, mota_1, mota_2, category });
+    return res.status(200).json(product);
   } catch (error) {
-    console.log("Thêm sản phẩm không thành công", error);
-    res.status(500).json({ mess: error });
+    res.status(500).json({ message: error.message });
   }
 });
+
+
 
 /* GET home page. */
 router.get("/detail/:spId", async (req, res) => {
@@ -35,12 +36,13 @@ router.get("/detail/:spId", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const pros = await productController.getpros();
-    return res.status(200).json({ pros });
+    return res.status(200).json(pros);
   } catch (error) {
     console.error("Lỗi khi lấy tất cả sản phẩm:", error);
     res.status(500).json({ message: error });
   }
 });
+
 
 // Tuyến đường để hiển thị sản phẩm hot
 router.get("/hot",checktoken, async (req, res) => {
@@ -101,15 +103,7 @@ router.get("/vanhoc", async (req, res) => {
   }
 });
 
-// router.get('/sale', async (req, res) => {
-//     try {
-//         const saleProducts = await getSaleProduct(); // Gọi hàm xử lý để lấy danh sách sản phẩm giảm giá
-//         res.status(200).json(saleProducts);
-//     } catch (error) {
-//         console.error('Lỗi lấy danh sách sản phẩm giảm giá:', error);
-//         res.status(500).json({ message: error });
-//     }
-// });
+
 
 // Route để lấy danh sách sản phẩm mới
 router.get("/newpro", async (req, res) => {
@@ -122,21 +116,6 @@ router.get("/newpro", async (req, res) => {
   }
 });
 
-// Thêm sản phẩm mới
-// router.post("/new", upload.single('image'), async (req, res) => {
-//   try {
-//     if (!req.file) {
-//       throw new Error("Vui lòng chọn một tệp hợp lệ");
-//     }
-//     const body = req.body;
-//     body.image = req.file.originalname;
-//     const result = await productController.insert(body);
-//     return res.status(201).json({ NewProduct: result });
-//   } catch (error) {
-//     console.error("Không thêm sản phẩm được:", error.message);
-//     res.status(500).json({ message: error });
-//   }
-// });
 
 // Lấy tất cả sản phẩm
 router.get("/", async (req, res) => {
@@ -154,7 +133,7 @@ router.get("/:id", async (req, res) => {
   try {
     const productId = req.params.id;
     const product = await productController.getProductById(productId);
-    return res.status(200).json({ Product: product });
+    return res.status(200).json( product );
   } catch (error) {
     console.error("Lỗi lấy sản phẩm theo ID:", error.message);
     res.status(500).json({ message: error });
@@ -168,7 +147,7 @@ router.put("/update/:id",upload.single('image'), async (req, res) => {
     const body = req.body;
     if (req.file) {
         body.img = req.file.originalname
-        
+
     }else{
         delete body.img
     }
@@ -179,6 +158,20 @@ router.put("/update/:id",upload.single('image'), async (req, res) => {
     res.status(500).json({ message: error });
   }
 });
+
+
+
+router.put("/:id", async (req, res, next) => {
+  try {
+    let {id}=req.params;
+    let { name, image, price_1, price_2, mota_1, mota_2, category } = req.body;
+    const product = await productController.updateById(id, { name, image, price_1, price_2, mota_1, mota_2, category });
+    return res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 
 router.delete("/:id", async (req, res) => {
   try {
@@ -195,8 +188,8 @@ router.delete("/:id", async (req, res) => {
 //http://localhost:3000/products/detail/id
 router.get("/detail/:id", async (req, res) => {
   try {
-    const id = req.params.id;
-    const sp = await productController.getProductDetail(id);
+    const productId = req.params.productId;
+    const sp = await productController.getProductDetail(productId);
     return res.status(200).json({ Sp: sp });
   } catch (error) {
     console.log("Lỗi lấy thông tin sản phẩm", error);
@@ -210,7 +203,7 @@ router.get("/category/:categoryId", async (req, res) => {
   try {
     const categoryId = req.params.categoryId;
     const products = await productController.getByCategory(categoryId);
-    return res.status(200).json({ Products: products });
+    return res.status(200).json( products );
   } catch (error) {
     console.error("Lỗi xóa sản phẩm theo mã danh mục:", error.message);
     res.status(500).json({ message: error });
@@ -314,15 +307,24 @@ router.get('/related/:id/related', async (req, res) => {
       console.log('Product ID:', id); // Kiểm tra xem id đã được lấy đúng chưa
       const relatedProducts = await productController.getRelatedProductsByProductId(id);
       console.log('Related Products:', relatedProducts); // Kiểm tra kết quả trả về từ controller
-      return res.status(200).json({ RelatedProducts: relatedProducts });
+      return res.status(200).json(relatedProducts);
   } catch (error) {
       console.log('Lỗi lấy sản phẩm liên quan theo danh mục', error);
       return res.status(500).json({ message: error.message });
   }
 });
+
+
+router.get("/search/:name", async (req, res, next) => {
+  try {
+    const { name } = req.params;
+    const products = await productController.findByName(name);
+    return res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router;
 
-//***************************************************************** */
-//tìm danh mục theo tên
-//Tìm và xóa sản phẩm theo điều kiện giá
-//Tìm và xóa sản phẩm theo điều kiện tên
+

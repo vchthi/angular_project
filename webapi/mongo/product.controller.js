@@ -1,164 +1,3 @@
-// //thực hiện thao tác CRUD
-// const productModel = require('./product.model')
-// const categoryModel = require('./category.model')
-// const { router } = require("../app");
-
-// module.exports = {getpros, getProductById, getByCategory,getHotProduct, getSaleProduct, getNewProduct}
-// module.exports = {getNew, insert, getAll,getByKey,updateById, remove };
-
-// //lấy danh sách sản phẩm
-// async function getpros(){
-//     try {
-//         const result = await productModel.find()  //đợi để lấy tất cả các cơ sở dữ liệu trong productModel
-//         return result
-//     } catch (error) {
-//         console.log('Lỗi lấy danh sách',error);
-//         throw error
-
-//     }
-// }
-
-// async function getProductById(productId) {
-//     try {
-//         const product = await productModel.findById(productId);
-//         return product;
-//     } catch (error) {
-//         console.log('Lỗi lấy thông tin sản phẩm', error);
-//         throw error;
-//     }
-// }
-
-// async function getByCategory(category) {
-//     try {
-//       const productsCategory = await productModel
-//         .find({
-//           "category.categoryId": category,
-//         })
-//       return productsCategory;
-//     } catch (error) {
-//       console.log("Lỗi lấy sản phẩm theo danh mục", error);
-//       throw error;
-//     }
-//   }
-
-//   async function getHotProduct() {
-//     try {
-//         const result = await productModel.find({view: {$gte: 1000}}).sort({view: -1}).limit(8);
-//         return result;
-//     } catch (error) {
-//         console.log('Lỗi lấy danh sách sản phẩm hot', error);
-//         throw error;
-//     }
-// }
-
-// async function getSaleProduct() {
-//   try {
-//       const prosale = await productModel.find().sort({price_2: -1}).limit(8);
-//       return prosale;
-//   } catch (error) {
-//     console.log('Lỗi lấy danh sách sản phẩm giảm giá', error);
-
-//       throw error;
-//   }
-// }
-
-// async function getNewProduct() {
-//   try {
-
-//     const newProducts = await productModel.find().sort({ ngaytao: -1 }).limit(8);
-//     return newProducts;
-//   } catch (error) {
-//     console.log('Lỗi lấy danh sách sản phẩm mới:', error.message);
-//     throw error;
-//   }
-// }
-
-// async function getAll() {
-//   try {
-//     // const result = await productModel.find().limit(6).sort({price: 1});  //1: sắp xếp tăng dần, -1 sắp xếp giảm dần
-
-//     //select name, price, quantity
-//     //  const result = await productModel.find({},{name:1,price:1,quantity:1});
-
-//     //select name, price, quantity where price >10000
-//     // const result = await productModel.find({price:{$gt:10000}},
-//     //$gt: greater than; $lt: less than
-//     //$gte: greater than or equal, $lte: less than or equal
-//     // {name:1,price:1,quantity:1});
-
-//     //select name, price, quantity where price >10000 and quantity >100
-//     // const result = await productModel.find(
-//     //   {
-//     //     $and: [
-//     //       {price:{$lt:10000}},
-//     //     {quantity:{$lt:100}}
-//     //     ]
-//     //   },
-//     // {name: 1,price:1,quantity:1}
-//     // )
-
-//     ////select name, price, quantity where price <10000 and price >20000
-//     // const result = await productModel.find(
-//     //   {
-//     //     $or: [{ price: { $lt: 10000 } },
-//     //           { price: { $gt: 20000 } }],
-//     //   },
-//     //   { name: 1, price: 1, quantity: 1 }
-//     // );
-
-//     //select name, price, quantity where name like %product%
-//     const result= await productModel.find({
-//       name:{$regex:'o',$option:'i'}
-//       //không phân biệt hoa thường
-//     },
-//     { name: 1, price: 1, quantity: 1 }
-//     )
-//     return result;
-//   } catch {
-//     console.log("loi lay danh sach san pham", error);
-//     throw error;
-//   }
-// }
-
-// async function getNew (){
-//   try {
-//     const result = await productModel.find().sort({_id: -1}).limit(5)
-//   } catch (error) {
-//     console.log('Lỗi lấy sản phẩm mới')
-//     throw error
-//   }
-// }
-
-// //lấy sản phẩm theo id
-// async function updateById(id, body){
-//   try{
-//     const pro = await productModel.findById(id)
-//     if(!pro){
-//       throw new Error('Không tìm thấy sản phẩm')
-//     }
-//     const {name,price,image,quantity, description, category} = body
-//     let cateFind = null
-//     if(category){
-//       cateFind = await categoryModel.findById(category)
-//     // const cateFind = await categoryModel.findById(category)
-//     if(!cateFind){
-//       throw new Error('Không tìm thấy danh mục')
-//     }
-
-//   }
-//     const cateUpdate = cateFind?{
-//       categoryId: cateFind._id,
-//       categoryName: cateFind.name
-//     }:pro.category
-//     const result = await productModel.findByIdAndUpdate(
-//       id, {name, price, image, quantity, description, category:cateUpdate},
-//       {new: true}
-//     )
-//   }catch(error){
-//     console.log("Lỗi update ", error);
-//     throw error;
-//   }
-// }
 
 const productModel = require("./product.model");
 const categoryModel = require("./category.model");
@@ -182,7 +21,8 @@ module.exports = {
   getProPage,
   getProductDetail,
   timvaxoa,
-  getRelatedProductsByProductId
+  getRelatedProductsByProductId,
+  findByName
 };
 
 async function insert(body) {
@@ -213,6 +53,7 @@ async function insert(body) {
     throw error;
   }
 }
+
 async function getpros() {
   try {
     const result = await productModel.find();
@@ -222,6 +63,7 @@ async function getpros() {
     throw error;
   }
 }
+
 
 async function getProductById(productId) {
   try {
@@ -316,32 +158,6 @@ async function getNew() {
     throw error;
   }
 }
-
-// async function insert(body) {
-//   try {
-//     const { name, description, image, price, quantity, category } = body;
-//     const categoryFind = await categoryModel.findById(category);
-//     if (!categoryFind) {
-//       throw new Error("Không tìm thấy danh mục");
-//     }
-//     const proNew = new productModel({
-//       name,
-//       description,
-//       image,
-//       price,
-//       quantity,
-//       category: {
-//         categoryId: categoryFind._id,
-//         categoryName: categoryFind.name,
-//       },
-//     });
-//     const result = await proNew.save();
-//     return result;
-//   } catch (error) {
-//     console.log("Lỗi insert product: ", error);
-//     throw error;
-//   }
-// }
 
 async function getProductById(productId) {
   try {
@@ -448,32 +264,33 @@ async function getProPage(page, limit) {
 
 async function updateById(id, body) {
   try {
-    const pro = await productModel.findById(id);
-    if (!pro) {
+    const product = await productModel.findById(id);
+    if (!product) {
       throw new Error("Không tìm thấy sản phẩm");
     }
-    const { name, price_1,price_2,image, mota_1,mota_2, category } = body;
-    let cateFind = null;
+    const { name, price_1, price_2, image, mota_1, mota_2, category } = body;
+    let categoryFind = null;
     if (category) {
-      cateFind = await categoryModel.findById(category);
-      if (!cateFind) {
+      categoryFind = await categoryModel.findById(category);
+      if (!categoryFind) {
         throw new Error("Không tìm thấy danh mục");
       }
     }
-    const cateUpdate = cateFind
+    const categoryUpdate = categoryFind
       ? {
-          categoryId: cateFind._id,
-          categoryName: cateFind.name,
+          categoryId: categoryFind._id,
+          categoryName: categoryFind.name,
         }
-      : pro.category;
-    const result = await productModel.findByIdAndUpdate(
+      : product.category;
+
+    const updatedProduct = await productModel.findByIdAndUpdate(
       id,
-      { name, price_1,price_2, image, mota_1, mota_2, category: cateUpdate },
+      { name, price_1, price_2, image, mota_1, mota_2, category: categoryUpdate },
       { new: true }
     );
-    return result;
+    return updatedProduct;
   } catch (error) {
-    console.log("Lỗi update ", error);
+    console.log("Lỗi update sản phẩm", error);
     throw error;
   }
 }
@@ -510,3 +327,17 @@ async function getRelatedProductsByProductId(id) {
       throw error;
   }
 }
+async function findByName(name) {
+  try {
+    // Thay thế các dấu cách bằng ".*" để tìm kiếm bất kỳ ký tự nào
+    const regexName = name.replace(/\s/g, ".*");
+
+    const products = await productModel.find({ name: { $regex: regexName, $options: "i" } });
+    return products;
+  } catch (error) {
+    console.error("Lỗi khi tìm kiếm sản phẩm theo tên:", error.message);
+    throw error;
+  }
+}
+
+
